@@ -36,4 +36,12 @@ public class Instructor extends User {
         System.out.println("Bio: " + bio);
         System.out.println("Courses: " + courses);
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+
+                ", bio: "+bio+
+                ", courses: "+courses;
+
+    }
 }

@@ -36,4 +36,11 @@ public class Student extends User {
         System.out.println("School: " + school);
         System.out.println("Subscriptions: " + subscriptions);
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+
+                ", school: "+school+
+                ", Subscriptions: "+subscriptions;
+    }
 }
