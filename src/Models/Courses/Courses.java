@@ -1,3 +1,7 @@
+package Models.Courses;
+
+import Models.Users.Instructor;
+
 public class Courses {
     private int id;
     private String title;

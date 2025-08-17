@@ -1,3 +1,5 @@
+package Models.Users;
+
 public class Student extends User {
     private String school;
     private String subscriptions;

@@ -1,3 +1,5 @@
+package Models.Users;
+
 public class Instructor extends User {
     private String bio;
     private String courses;
@@ -34,7 +36,7 @@ public class Instructor extends User {
     public void display() {
         super.display();
         System.out.println("Bio: " + bio);
-        System.out.println("Courses: " + courses);
+        System.out.println("Models.Courses.Courses: " + courses);
     }
 
     @Override

@@ -1,3 +1,5 @@
+package Models.Courses;
+
 public class Lessons {
     private int id;
     private String title;

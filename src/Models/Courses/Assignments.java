@@ -1,3 +1,5 @@
+package Models.Courses;
+
 public class Assignments {
 private int id;
 private String title;
