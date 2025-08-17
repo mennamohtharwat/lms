@@ -1,39 +1,25 @@
 package Models.Users;
 
+import java.util.UUID;
+
 public class User {
-    private int id;
+    private final String id = UUID.randomUUID().toString();
     private String email;
-    private String pass;
+    private String password;
     private String name;
 
-    public User() {
-        this.id = 0;
-        this.email = "Unknown";
-        this.pass = "Unknown";
-        this.name = "Unknown";
-    }
-
-    public User(int id, String email, String pass, String name) {
-        this.id = id;
+    public User(String email, String password, String name) {
         this.email = email;
-        this.pass = pass;
+        this.password = password;
         this.name = name;
     }
 
-    public void setId(final int id) {
-        if (id >= 0) {
-            this.id = id;
-        } else {
-            System.out.println("Invalid ID");
-        }
-    }
-
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
     public void setEmail(final String email) {
-        if (email != null && email.contains("@")) {
+        if (validateEmail(email)) {
             this.email = email;
         } else {
             System.out.println("Invalid email");
@@ -44,16 +30,16 @@ public class User {
         return this.email;
     }
 
-    public void setPass(final String pass) {
-        if (pass != null && pass.length() >= 4) {
-            this.pass = pass;
+    public void setPassword(final String password) {
+        if (password != null && password.length() >= 4) {
+            this.password = password;
         } else {
             System.out.println("Password must be at least 4 characters.");
         }
     }
 
-    public String getPass() {
-        return this.pass;
+    public String getPassword() {
+        return this.password;
     }
 
     public void setName(final String name) {
@@ -68,10 +54,8 @@ public class User {
         return this.name;
     }
 
-    public void display() {
-        System.out.println("id" + id);
-        System.out.println("email" + email);
-        System.out.println("name" + name);
+    public boolean validateEmail(String email){
+      return email != null && email.contains("@");
     }
 
     @Override
