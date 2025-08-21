@@ -1,5 +1,6 @@
 package Models.Users;
 
+import javax.naming.Name;
 import java.util.UUID;
 
 public class User {
@@ -31,7 +32,7 @@ public class User {
     }
 
     public void setPassword(final String password) {
-        if (password != null && password.length() >= 4) {
+        if (validatePassword(password)) {
             this.password = password;
         } else {
             System.out.println("Password must be at least 4 characters.");
@@ -43,7 +44,7 @@ public class User {
     }
 
     public void setName(final String name) {
-        if (name != null && !name.isEmpty()) {
+        if (validateName(name)) {
             this.name = name;
         } else {
             System.out.println("Name cannot be empty");
@@ -56,6 +57,13 @@ public class User {
 
     public boolean validateEmail(String email){
       return email != null && email.contains("@");
+    }
+
+    public boolean validatePassword(String password) {
+        return password != null && password.length() >= 4;
+    }
+    public boolean validateName(String name){
+        return name != null && !name.isEmpty();
     }
 
     @Override

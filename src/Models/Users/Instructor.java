@@ -1,8 +1,13 @@
 package Models.Users;
 
+import Models.Courses.Courses;
+import Models.Courses.Lessons;
+import java.util.ArrayList;
+
 public class Instructor extends User {
     private String bio;
     private String courses;
+    private ArrayList<Courses> course = new ArrayList<>();
 
     public Instructor(String email, String pass, String name, String bio, String courses) {
         super(email, pass, name);
