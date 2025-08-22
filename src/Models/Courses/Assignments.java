@@ -6,14 +6,14 @@ public class Assignments {
     private final String id = UUID.randomUUID().toString();
 private String title;
 private String content;
-private int grade;
+private Double grade;
 private Lessons lesson;
 
    public Assignments(String id, String title, String content, Lessons lesson) {
        this.title = title;
         this.content = content;
         this.lesson = lesson;
-        this.grade = 0;
+        this.grade = null;
     }
 
     public void setTitle(String title) {
@@ -24,7 +24,7 @@ private Lessons lesson;
         this.content = content;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(Double grade) {
         this.grade = grade;
     }
 
@@ -36,7 +36,7 @@ private Lessons lesson;
         return content;
     }
 
-    public int getGrade() {
+    public Double getGrade() {
         return grade;
     }
 

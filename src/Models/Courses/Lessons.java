@@ -33,6 +33,8 @@ public class Lessons {
         return content;
     }
 
+    public void addAssignment(Assignments assignment) {
+    }
     @Override
     public String toString() {
          return  "id: " + id +

@@ -19,7 +19,6 @@ public class Courses {
         this.instructor = instructor;
     }
 
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -34,6 +33,11 @@ public class Courses {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getId(){ return id; }
+
+    public void addLesson(Lessons lesson) {
     }
 
     public String toString(){
