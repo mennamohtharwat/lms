@@ -3,15 +3,15 @@ package Models.Courses;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Lessons {
+public class Lesson {
     private final String id = UUID.randomUUID().toString();
     private String title;
     private String content;
-    private Courses course;
-    private ArrayList<Assignments> assignment = new ArrayList<>();
+    private Course course;
+    private ArrayList<Assignment> assignment = new ArrayList<>();
 
 
-    public Lessons(String id, String title, String content, Courses course) {
+    public Lesson(String id, String title, String content, Course course) {
         this.title = title;
         this.content = content;
         this.course = course;
@@ -33,7 +33,7 @@ public class Lessons {
         return content;
     }
 
-    public void addAssignment(Assignments assignment) {
+    public void addAssignment(Assignment assignment) {
     }
     @Override
     public String toString() {

@@ -4,16 +4,14 @@ import Models.Users.Instructor;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Courses {
+public class Course {
     private final String id = UUID.randomUUID().toString();
     private String title;
     private String description;
     private Instructor instructor;
-    private ArrayList<Lessons> lessons = new ArrayList<>();
+    private ArrayList<Lesson> lessons = new ArrayList<>();
 
-
-
-    public Courses(String id, String title, String description, Instructor instructor ) {
+    public Course(String id, String title, String description, Instructor instructor ) {
         this.title = title;
         this.description = description;
         this.instructor = instructor;
@@ -37,7 +35,7 @@ public class Courses {
 
     public String getId(){ return id; }
 
-    public void addLesson(Lessons lesson) {
+    public void addLesson(Lesson lesson) {
     }
 
     public String toString(){
