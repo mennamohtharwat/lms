@@ -1,6 +1,7 @@
 package Models.Courses;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Lesson {
@@ -35,6 +36,11 @@ public class Lesson {
 
     public void addAssignment(Assignment assignment) {
     }
+
+    public List<Assignment> getAssignments() {
+        return assignment;
+    }
+
     @Override
     public String toString() {
          return  "id: " + id +

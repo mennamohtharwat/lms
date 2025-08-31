@@ -2,6 +2,7 @@ package Models.Courses;
 
 import Models.Users.Instructor;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Course {
@@ -36,6 +37,10 @@ public class Course {
     public String getId(){ return id; }
 
     public void addLesson(Lesson lesson) {
+    }
+
+    public List<Lesson> getLessons() {
+        return lessons;
     }
 
     public String toString(){

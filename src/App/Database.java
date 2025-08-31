@@ -11,6 +11,6 @@ public class Database {
     public static ArrayList<Course> courses = new ArrayList<>();
     public static ArrayList<Assignment> assignments = new ArrayList<>();
     public static ArrayList<User> users = new ArrayList<>();
-    public static ArrayList<CourseSubscription>courseSubscriptions = new ArrayList<>();
-    public static ArrayList <AssignmentSubmission>assignmentSubmissions = new ArrayList<>();
+    public static ArrayList<CourseSubscription> courseSubscriptions = new ArrayList<>();
+    public static ArrayList<AssignmentSubmission> assignmentSubmissions = new ArrayList<>();
 }
