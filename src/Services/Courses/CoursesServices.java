@@ -3,13 +3,16 @@ package Services.Courses;
 import App.Database;
 import Models.Courses.*;
 import Models.Users.Student;
+
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 public class CoursesServices {
     //Instructor
-    public void createCourse(Course course) {
+    public boolean createCourse(Course course) {
         Database.courses.add(course);
         System.out.println("Course created: " + course.getTitle());
+        return true;
     }
 
     public void updateCourse(String courseId, String newTitle, String newDescription) {
@@ -24,26 +27,33 @@ public class CoursesServices {
         }
     }
 
-    public void deleteCourse(String courseId) {
+    public boolean deleteCourse(String courseId) {
         Course courseToDelete = null;
+
         for (Course course : Database.courses) {
             if (course.getId().equals(courseId)) {
                 courseToDelete = course;
                 break;
             }
         }
-        if (courseToDelete != null) {
-            for (Lesson lesson : courseToDelete.getLessons()) {
-                lesson.getAssignments().clear();
-            }
 
-            courseToDelete.getLessons().clear();
-           Database.courses.remove(courseToDelete);
-
-            System.out.println("Course deleted : " + courseId);
-        } else {
-            System.out.println("Course not found with ID: " + courseId);
+        if (courseToDelete == null) {
+            System.out.println("course not found.");
+            return false;
         }
+
+        Database.courses.removeIf(course -> course.getId().equals(courseId));
+
+        for (Lesson lesson : courseToDelete.getLessons()) {
+            Database.lessons.removeIf(item -> item.getId().equals(lesson.getId()));
+
+            for (Assignment assignment : lesson.getAssignments()) {
+                Database.assignments.removeIf(item -> item.getId().equals(assignment.getId()));
+            }
+        }
+
+        System.out.println("Course deleted: " + courseToDelete.getTitle());
+        return true;
     }
 
     public void addLessonToCourse(String courseId, Lesson lesson) {

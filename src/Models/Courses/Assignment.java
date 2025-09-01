@@ -40,6 +40,10 @@ public class Assignment {
         this.grade = grade;
     }
 
+    public String getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "id: " + id +

@@ -8,8 +8,8 @@ public class Lesson {
     private final String id = UUID.randomUUID().toString();
     private String title;
     private String content;
-    private Course course;
-    private ArrayList<Assignment> assignment = new ArrayList<>();
+    private final Course course;
+    private final ArrayList<Assignment> assignment = new ArrayList<>();
 
 
     public Lesson(String id, String title, String content, Course course) {
@@ -18,20 +18,24 @@ public class Lesson {
         this.course = course;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getContent() {
+        return content;
     }
 
     public void setContent(String content) {
         this.content = content;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getContent() {
-        return content;
+    public String getId() {
+        return id;
     }
 
     public void addAssignment(Assignment assignment) {
@@ -43,7 +47,7 @@ public class Lesson {
 
     @Override
     public String toString() {
-         return  "id: " + id +
+        return "id: " + id +
                 ", title: " + title +
                 ", content: " + content;
 
