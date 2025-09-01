@@ -6,19 +6,14 @@ import Models.Users.Student;
 import java.util.ArrayList;
 
 public class CoursesServices {
-    private final ArrayList<CourseSubscription> courseSubscriptions = Database.courseSubscriptions;
-    private final ArrayList<AssignmentSubmission> assignmentSubmissions = Database.assignmentSubmissions;
-    private final ArrayList<Course> courses = Database.courses;
-    private final ArrayList<Assignment> assignments = Database.assignments;
-
     //Instructor
     public void createCourse(Course course) {
-        courses.add(course);
+        Database.courses.add(course);
         System.out.println("Course created: " + course.getTitle());
     }
 
     public void updateCourse(String courseId, String newTitle, String newDescription) {
-        for (Course course : courses) {
+        for (Course course : Database.courses) {
             if (course.getId().equals(courseId)) {
                 course.setTitle(newTitle);
                 course.setDescription(newDescription);
@@ -52,7 +47,7 @@ public class CoursesServices {
     }
 
     public void addLessonToCourse(String courseId, Lesson lesson) {
-        for (Course course : courses) {
+        for (Course course : Database.courses) {
             if (course.getId() == courseId) {
                 course.addLesson(lesson);
                 System.out.println("Lesson added to course: " + course.getTitle());
@@ -74,12 +69,12 @@ public class CoursesServices {
 
     //Student
     public void createCourseSubscription(Course course, Student student) {
-        courseSubscriptions.add(new CourseSubscription(course, student));
+        Database.courseSubscriptions.add(new CourseSubscription(course, student));
         System.out.println(" You have subscribed to the course :" + course.getTitle());
     }
 
     public void assignmentSubmission(Student student, Assignment assignment) {
-        assignmentSubmissions.add(new AssignmentSubmission(student, assignment));
+        Database.assignmentSubmissions.add(new AssignmentSubmission(student, assignment));
         System.out.println("Assignment uploaded: " + assignment.getTitle());
     }
 
