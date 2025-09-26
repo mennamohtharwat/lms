@@ -3,7 +3,7 @@ package Services.Courses;
 import App.Database;
 import Models.Courses.*;
 import Models.Users.Student;
-
+import Models.Users.Instructor;
 import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
@@ -56,9 +56,9 @@ public class CoursesServices {
         return true;
     }
 
-    public void addLessonToCourse(String courseId, Lesson lesson) {
+    public void addLessonToCourse(String title, Lesson lesson) {
         for (Course course : Database.courses) {
-            if (course.getId() == courseId) {
+            if (course.getTitle().equals(title)) {
                 course.addLesson(lesson);
                 System.out.println("Lesson added to course: " + course.getTitle());
                 return;
@@ -103,6 +103,34 @@ public class CoursesServices {
             System.out.println("Available courses:");
             for (Course course : Database.courses) {
                 System.out.println(course);
+            }
+        }
+    }
+    public void listLessons() {
+        for (Course course : Database.courses) {
+            System.out.println("Course: " + course.getTitle());
+            if (course.getLessons().isEmpty()) {
+                System.out.println("  No lessons added yet.");
+            } else {
+                for (Lesson lesson : course.getLessons()) {
+                    System.out.println("  Lesson: " + lesson.getTitle());
+                }
+            }
+        }
+    }
+
+    public void listAssignments() {
+        for (Course course : Database.courses) {
+            System.out.println("Course: " + course.getTitle());
+            for (Lesson lesson : course.getLessons()) {
+                System.out.println("  Lesson: " + lesson.getTitle());
+                if (lesson.getAssignments().isEmpty()) {
+                    System.out.println("    No assignments yet.");
+                } else {
+                    for (Assignment assignment : lesson.getAssignments()) {
+                        System.out.println("    Assignment: " + assignment.getTitle());
+                    }
+                }
             }
         }
     }

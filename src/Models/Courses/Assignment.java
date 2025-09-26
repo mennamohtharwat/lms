@@ -9,7 +9,7 @@ public class Assignment {
     private Double grade;
     private final Lesson lesson;
 
-    public Assignment(String id, String title, String content, Lesson lesson) {
+    public Assignment( String title, String content, Lesson lesson) {
         this.title = title;
         this.content = content;
         this.lesson = lesson;

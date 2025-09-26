@@ -11,8 +11,7 @@ public class Lesson {
     private final Course course;
     private final ArrayList<Assignment> assignment = new ArrayList<>();
 
-
-    public Lesson(String id, String title, String content, Course course) {
+    public Lesson( String title, String content, Course course) {
         this.title = title;
         this.content = content;
         this.course = course;
@@ -39,6 +38,7 @@ public class Lesson {
     }
 
     public void addAssignment(Assignment assignment) {
+        this.assignment.add(assignment);
     }
 
     public List<Assignment> getAssignments() {

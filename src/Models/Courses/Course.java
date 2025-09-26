@@ -12,7 +12,7 @@ public class Course {
     private Instructor instructor;
     private ArrayList<Lesson> lessons = new ArrayList<>();
 
-    public Course(String id, String title, String description, Instructor instructor ) {
+    public Course( String title, String description, Instructor instructor ) {
         this.title = title;
         this.description = description;
         this.instructor = instructor;
@@ -37,6 +37,7 @@ public class Course {
     public String getId(){ return id; }
 
     public void addLesson(Lesson lesson) {
+        lessons.add(lesson);
     }
 
     public List<Lesson> getLessons() {
